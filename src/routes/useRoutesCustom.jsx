@@ -6,6 +6,7 @@ import UserTemplate from "../template/UserTemplate/UserTemplate";
 import AdminTemplate from "../template/AdminTemplate/AdminTemplate";
 import MovieManager from "../pages/MovieManager/MovieManager";
 import AddMovie from "../pages/AddMovie/AddMovie";
+import Detail from "../pages/Detail/Detail";
 const useRoutesCustom = () => {
   const routes = useRoutes([
     {
@@ -19,6 +20,10 @@ const useRoutesCustom = () => {
         {
           path: "sign-in",
           element: <SignIn />,
+        },
+        {
+          path: "/detail/:id",
+          element: <Detail/>
         },
       ],
     },

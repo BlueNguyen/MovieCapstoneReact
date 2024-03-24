@@ -1,4 +1,5 @@
 .carousel_banner {
+  
   .slick-next {
     right: 30px;
     color: white;
@@ -19,4 +20,31 @@
       display: none;
     }
   }
+
+  .slick-dots {
+    bottom: 20px; //  vị trí của thanh chỉ số theo ý muốn
+}
+
+
+.slick-dots li {
+    margin: 0 5px; 
+    width: 10px;
+    height: 10px;
+    button {
+        width: 13px; // Đường kính của dot
+        height: 13px; // Đường kính của dot
+        border-radius: 50%; 
+        background-color: #ccc; 
+        border: 2px solid transparent; 
+    }
+    &.slick-active {
+        button {
+            background-color: orange; 
+            border-color: orange; 
+        }
+    }
+}
+
+
+
 }

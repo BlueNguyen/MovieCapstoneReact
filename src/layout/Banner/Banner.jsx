@@ -7,6 +7,7 @@ import {
   handleTurnOffLoading,
   handleTurnOnLoading,
 } from "../../redux/slice/loadingSlice";
+import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 const Banner = () => {
   const dispatch = useDispatch();
   const [arrBanner, setArrBanner] = useState([]);
@@ -40,15 +41,28 @@ const Banner = () => {
   return (
     <div className="carousel_banner">
       <Carousel
-        nextArrow={<div>Hello</div>}
-        prevArrow={<div>Bye</div>}
+        nextArrow={
+          <div >
+            <RightOutlined />
+          </div>
+        }
+        prevArrow={
+          <div>
+            {" "}
+            <LeftOutlined />
+          </div>
+        }
         arrows={true}
         afterChange={onChange}
       >
         {arrBanner.map((banner, index) => {
           return (
             <div key={index} className="h-screen-70 ">
-              <img className="w-full" src={banner.hinhAnh} alt="" />
+              <img
+                className="w-full centered-image"
+                src={banner.hinhAnh}
+                alt="image-banner"
+              />
             </div>
           );
         })}

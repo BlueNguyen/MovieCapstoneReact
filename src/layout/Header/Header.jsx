@@ -1,12 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import logo from "./../../assets/img/logo.png";
 import { NavLink } from "react-router-dom";
 import { getLocalStorage } from "../../utils/util";
+import "./header.scss"
 const Header = () => {
   const userLocal = getLocalStorage("user");
   console.log(userLocal);
+
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      if (scrollTop > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+
+
   return (
-    <header>
+    <header className={isScrolled ? "scrolled" : ""}>
       <nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5 ">
         <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
           <a href="#" className="flex items-center">
@@ -26,6 +48,13 @@ const Header = () => {
                 Đăng nhập
               </NavLink>
             )}
+
+            <NavLink
+              to="/sign-in"
+              className="text-gray-800 hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2  focus:outline-none "
+            >
+              Đăng kí
+            </NavLink>
           </div>
           <div
             className="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1"

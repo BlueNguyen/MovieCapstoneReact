@@ -1,0 +1,12 @@
+header {
+  background-color: #ffffff;
+  padding: 20px;
+
+  &.scrolled {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+  }
+}
