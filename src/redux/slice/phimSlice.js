@@ -5,6 +5,7 @@ import { handleTurnOffLoading, handleTurnOnLoading } from "./loadingSlice";
 
 const initialState = {
   arrMovie: [],
+  filmDetail: {},
 };
 
 export const getAllMovieThunk = createAsyncThunk(

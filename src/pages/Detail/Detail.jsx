@@ -1,14 +1,35 @@
 import { Flex, Progress, Rate } from "antd";
 import { Header } from "antd/es/layout/layout";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./detail.scss";
+import { useParams } from "react-router-dom";
 
 const Detail = () => {
   const desc = ["terrible", "bad", "normal", "good", "wonderful"];
 
   const [value, setValue] = useState(3);
   
+  const { id } = useParams(); 
+  const history = useHistory();
+  const [filmDetail, setFilmDetail] = useState(null);
 
+  useEffect(() => {
+    // Gọi API để lấy thông tin chi tiết của phim
+    const fetchFilmDetail = async () => {
+      try {
+        const response = await quanLyPhimServ.getFilmDetail(id);
+        setFilmDetail(response.data);
+      } catch (error) {
+        console.error("Error fetching film detail: ", error);
+      }
+    };
+
+    fetchFilmDetail();
+  }, [id]);
+
+  const handleBooking = (maLichChieu) => {
+    history.push(`/booking/${maLichChieu}`);
+  };
   return (
     <div
       style={{
@@ -27,8 +48,22 @@ const Detail = () => {
                 alt=""
               />
               <div className="ml-5">
-                <h3>Ten</h3>
-                <p>Mota</p>
+                {filmDetail && (
+                  <>
+                    <h1>{filmDetail.tenPhim}</h1>
+                    <p>{filmDetail.moTa}</p>
+                    {/* Hiển thị danh sách các suất chiếu */}
+                    {filmDetail.lstLichChieuTheoPhim.map((lichChieu) => (
+                      <div
+                        key={lichChieu.maLichChieu}
+                        onClick={() => handleBooking(lichChieu.maLichChieu)}
+                      >
+                        <p>{lichChieu.ngayChieuGioChieu}</p>
+                        {/* Hiển thị các thông tin khác của suất chiếu */}
+                      </div>
+                    ))}
+                  </>
+                )}
               </div>
             </div>
           </div>

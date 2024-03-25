@@ -3,6 +3,14 @@ import { Tabs } from "antd";
 import "./lichChieuPhim.scss";
 import moment from "moment";
 const LichChieuPhim = ({ cumrap }) => {
+
+  const history = useHistory();
+
+  const handleBooking = (maLichChieu) => {
+    history.push(`/booking/${maLichChieu}`);
+  };
+
+
   return (
     <div>
       <Tabs

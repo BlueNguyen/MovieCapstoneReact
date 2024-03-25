@@ -6,3 +6,4 @@ export const quanLyNguoiDungServ = {
     return http.post("/QuanLyNguoiDung/DangNhap", data);
   },
 };
+
