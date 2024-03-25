@@ -6,7 +6,8 @@ const Loading = () => {
       className="h-screen w-full bg-slate-100 flex items-center justify-center fixed top-0 left-0"
       style={{ zIndex: 9999 }}
     >
-      Loading
+      
+      <img src="" alt="loading-image" />
     </div>
   );
 };

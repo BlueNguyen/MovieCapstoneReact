@@ -1,0 +1,18 @@
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(80px); /* Tạo hiệu ứng mờ */
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); /* Đổ bóng */
+  backdrop-filter: blur(10px); /* Hiệu ứng mờ cho nội dung bên trong */
+  padding: 150px; /* Khoảng cách giữa nội dung và viền */
+
+  & > * {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+  }
+  img {
+    width: 200px;
+    height: 350px;
+  }
+}
