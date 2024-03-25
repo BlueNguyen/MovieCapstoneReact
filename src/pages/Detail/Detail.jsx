@@ -3,33 +3,31 @@ import { Header } from "antd/es/layout/layout";
 import React, { useEffect, useState } from "react";
 import "./detail.scss";
 import { useParams } from "react-router-dom";
+import { quanLyPhimServ } from "../../services/quanLyPhim";
 
 const Detail = () => {
   const desc = ["terrible", "bad", "normal", "good", "wonderful"];
 
   const [value, setValue] = useState(3);
-  
-  const { id } = useParams(); 
-  const history = useHistory();
+
+  const { id } = useParams();
   const [filmDetail, setFilmDetail] = useState(null);
 
   useEffect(() => {
-    // Gọi API để lấy thông tin chi tiết của phim
-    const fetchFilmDetail = async () => {
-      try {
-        const response = await quanLyPhimServ.getFilmDetail(id);
+    quanLyPhimServ
+      .getFilmDetail(id)
+      .then((response) => {
         setFilmDetail(response.data);
-      } catch (error) {
+      })
+      .catch((error) => {
         console.error("Error fetching film detail: ", error);
-      }
-    };
-
-    fetchFilmDetail();
+      });
   }, [id]);
 
   const handleBooking = (maLichChieu) => {
-    history.push(`/booking/${maLichChieu}`);
+    window.location.href = `/booking/${maLichChieu}`;
   };
+
   return (
     <div
       style={{
