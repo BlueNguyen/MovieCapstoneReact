@@ -7,6 +7,8 @@ import AdminTemplate from "../template/AdminTemplate/AdminTemplate";
 import MovieManager from "../pages/MovieManager/MovieManager";
 import AddMovie from "../pages/AddMovie/AddMovie";
 import Detail from "../pages/Detail/Detail";
+import TicketRoom from "../pages/TicketRoom/TicketRoom";
+
 const useRoutesCustom = () => {
   const routes = useRoutes([
     {
@@ -23,7 +25,11 @@ const useRoutesCustom = () => {
         },
         {
           path: "/detail/:id",
-          element: <Detail/>
+          element: <Detail />,
+        },
+        {
+          path: "/booking",
+          element: <TicketRoom />,
         },
       ],
     },

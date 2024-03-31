@@ -5,6 +5,6 @@ export const quanLyRapServ = {
     return http.get("/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=GP01");
   },
   getThongTinLichChieuPhim(maPhim){
-    return http.get("/QuanLyRap/LayThongTinLichChieuPhim?maPhim=${maPhim}");
+    return http.get(`/QuanLyRap/LayThongTinLichChieuPhim?maPhim=${maPhim}`);
   }
 };

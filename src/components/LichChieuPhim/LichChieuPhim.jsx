@@ -5,12 +5,13 @@ import moment from "moment";
 const LichChieuPhim = ({ cumrap }) => {
 
 
+
   return (
     <div>
       <Tabs
         className="tab_cum_rap"
         tabPosition="left"
-        style={{ height: "700px" }}
+        style={{ height: "700px", width: "350px" }}
         items={cumrap.map((item, index) => {
           return {
             label: (
@@ -27,10 +28,10 @@ const LichChieuPhim = ({ cumrap }) => {
                 {item.danhSachPhim.map((phim, index) => {
                   return (
                     phim.dangChieu && (
-                      <div className="flex my-10" key={index}>
+                      <div className="flex my-5 w-80" key={index}>
                         <div>
                           <img
-                            className="w-36 h-full"
+                            className="max-w-20 max-h-15"
                             src={phim.hinhAnh}
                             alt=""
                           />
@@ -46,28 +47,32 @@ const LichChieuPhim = ({ cumrap }) => {
                             </span>
                           </h3>
                           {/* suất chiếu  */}
-                          <div className="grid grid-cols-2 gap-5">
+                          <div className="grid grid-cols-4 gap-5">
                             {/* Suất chiếu chỉ hiện thị 4 phần tử đầu trong mảng  */}
                             {phim.lstLichChieuTheoPhim
                               .slice(0, 4)
                               .map((gioChieu, index) => {
                                 return (
-                                  <div>
-                                    <p className="space-x-3">
-                                      {/* ngày tháng  */}
-                                      <span>
-                                        {moment(
-                                          gioChieu.ngayChieuGioChieu
-                                        ).format("DD-MM-YYYY")}
-                                      </span>
-                                      <span>~</span>
-                                      {/* giờ chiếu  */}
-                                      <span>
-                                        {moment(
-                                          gioChieu.ngayChieuGioChieu
-                                        ).format("hh:mm")}
-                                      </span>
-                                    </p>
+                                  <div
+                                  className="space-x-3"
+                                    style={{
+                                      display: "flex",
+                                      flexWrap: "wrap",
+                                    }}
+                                  >
+                                    {/* ngày tháng  */}
+                                    <a>
+                                      {moment(
+                                        gioChieu.ngayChieuGioChieu
+                                      ).format("DD-MM-YYYY")}
+                                    </a>
+                                    <a>~</a>
+                                    {/* giờ chiếu  */}
+                                    <a>
+                                      {moment(
+                                        gioChieu.ngayChieuGioChieu
+                                      ).format("hh:mm")}
+                                    </a>
                                   </div>
                                 );
                               })}
