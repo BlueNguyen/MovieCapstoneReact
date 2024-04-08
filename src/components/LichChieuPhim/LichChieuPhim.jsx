@@ -24,9 +24,10 @@ const LichChieuPhim = ({ cumrap }) => {
             ),
             key: index,
             children: (
-              <div>
+              <div >
                 {item.danhSachPhim.map((phim, index) => {
                   return (
+                    
                     phim.dangChieu && (
                       <div className="flex my-5 w-80" key={index}>
                         <div>
@@ -47,7 +48,7 @@ const LichChieuPhim = ({ cumrap }) => {
                             </span>
                           </h3>
                           {/* suất chiếu  */}
-                          <div className="grid grid-cols-4 gap-5">
+                          <div className="grid grid-cols-2 gap-5">
                             {/* Suất chiếu chỉ hiện thị 4 phần tử đầu trong mảng  */}
                             {phim.lstLichChieuTheoPhim
                               .slice(0, 4)
@@ -61,18 +62,18 @@ const LichChieuPhim = ({ cumrap }) => {
                                     }}
                                   >
                                     {/* ngày tháng  */}
-                                    <a>
+                                    <button>
                                       {moment(
                                         gioChieu.ngayChieuGioChieu
                                       ).format("DD-MM-YYYY")}
-                                    </a>
+                                    </button>
                                     <a>~</a>
                                     {/* giờ chiếu  */}
-                                    <a>
+                                    <button>
                                       {moment(
                                         gioChieu.ngayChieuGioChieu
                                       ).format("hh:mm")}
-                                    </a>
+                                    </button>
                                   </div>
                                 );
                               })}

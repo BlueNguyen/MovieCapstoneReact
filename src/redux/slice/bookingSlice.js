@@ -1,14 +1,13 @@
+// seatSlice.js
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
-  selectedSeats: [],
-};
-
-const seatSlice = createSlice({
+const bookingSlice = createSlice({
   name: "seat",
-  initialState,
+  initialState: {
+    selectedSeats: [],
+  },
   reducers: {
-    datGhe(state, action) {
+    datGhe: (state, action) => {
       const index = state.selectedSeats.findIndex(
         (gheDangDat) => gheDangDat.soGhe === action.payload.soGhe
       );
@@ -18,16 +17,16 @@ const seatSlice = createSlice({
         state.selectedSeats.push(action.payload);
       }
     },
-    xoaGhe(state, action) {
+    xoaGhe: (state, action) => {
       state.selectedSeats = state.selectedSeats.filter(
         (seat) => seat.soGhe !== action.payload
       );
     },
-    xoaTatCaGhe(state) {
+    xoaTatCaGhe: (state) => {
       state.selectedSeats = [];
     },
   },
 });
 
-export const { datGhe, xoaGhe, xoaTatCaGhe } = seatSlice.actions;
-export default seatSlice.reducer;
+export const { datGhe, xoaGhe, xoaTatCaGhe } = bookingSlice.actions;
+export default bookingSlice.reducer;

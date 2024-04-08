@@ -29,7 +29,7 @@ const LichChieuCumRap = () => {
       <div className="grid grid-cols-8 gap-20">
         <Tabs
           tabPosition="left"
-          style={{ height: "500px" }}
+          style={{ height: "700px" }}
           items={arrCumRap.map((cumrap, index) => ({
             label: <img className="w-14" src={cumrap.logo} />,
             key: cumrap.maHeThongRap,

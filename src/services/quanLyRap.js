@@ -6,5 +6,6 @@ export const quanLyRapServ = {
   },
   getThongTinLichChieuPhim(maPhim){
     return http.get(`/QuanLyRap/LayThongTinLichChieuPhim?maPhim=${maPhim}`);
-  }
+  }, 
+  
 };
